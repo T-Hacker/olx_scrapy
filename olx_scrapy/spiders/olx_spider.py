@@ -13,7 +13,11 @@ class OlxSpider(scrapy.Spider):
         self._http = urllib3.PoolManager()
 
         urls = [
-            'https://www.olx.pt/ads/q-pinball/',
+            "https://www.olx.pt/ads/q-pinball/",
+            "https://www.olx.pt/ads/q-flipers/",
+            "https://www.olx.pt/ads/q-fliper/",
+            "https://www.olx.pt/ads/q-flippers/",
+            "https://www.olx.pt/ads/q-pinbal/"
         ]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
