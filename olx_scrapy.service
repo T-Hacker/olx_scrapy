@@ -3,7 +3,8 @@ Description=OLX Scrapper
 
 [Service]
 User=pedro
-Group=pedro
+Group=pi
+WorkingDirectory=/home/pedro/projects/olx_scrapy
 ExecStart=/home/pedro/projects/olx_scrapy/start_olx_scrape.sh
 
 [Install]
