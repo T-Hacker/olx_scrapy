@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'olx_scrapy.spiders'
 #USER_AGENT = 'olx_scrapy (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -90,7 +90,7 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 # Feed export options.
-# FEED_FORMAT = 'jsonlines'
-# FEED_URI = 'feed_dump/olx_feed_%(time)s.jl'
+FEED_FORMAT = 'jsonlines'
+FEED_URI = 'olx_feed.jl'
 # FEED_FORMAT = 'xml'
 # FEED_URI = 'feed_dump/olx_feed_%(time)s.xml'

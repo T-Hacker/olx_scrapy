@@ -1,7 +1,6 @@
 import scrapy
 import hashlib
 import urllib3
-from bs4 import BeautifulSoup
 
 urllib3.disable_warnings()
 
@@ -26,6 +25,9 @@ class OlxSpider(scrapy.Spider):
         entries = response.xpath(
             "//table[contains(@id, 'offers_table')]/tbody/tr[contains(@class, 'wrap')]")
 
+        for href in response.xpath("string(//a[contains(@data-cy, 'page-link-next')]/@href)"):
+            yield response.follow(href, callback=self.parse)
+
         for entry in entries:
             img_src = entry.xpath('string(.//img/@src)').extract_first()
 
@@ -45,9 +47,6 @@ class OlxSpider(scrapy.Spider):
                 'link': link,
                 '_id': hash
             }
-
-        for href in response.xpath("string(//a[contains(@data-cy, 'page-link-next')]/@href)"):
-            yield response.follow(href, callback=self.parse)
 
     def _generate_hash(self, title, price, img_src):
         hasher = hashlib.sha1()
