@@ -5,7 +5,7 @@ Description=OLX Scrapper
 User=pedro
 Group=pi
 WorkingDirectory=/home/pedro/projects/olx_scrapy
-ExecStart=/home/pedro/projects/olx_scrapy/start_olx_scrape.sh
+ExecStart=/usr/bin/python3 /home/pedro/projects/olx_scrapy/run_scrappers.py
 
 [Install]
 WantedBy=multi-user.target
